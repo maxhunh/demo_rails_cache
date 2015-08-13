@@ -1,0 +1,43 @@
+<h1>Listing posts</h1>
+
+<br/>
+<!-- http://stackoverflow.com/questions/17445994/rails-4-0-expire-fragment-cache-expiration-not-working -->
+<% cache 'list_title', skip_digest: true do %>
+  <ui>
+    <% @posts.each do |post| %>
+      <li><%= post.title %></li>
+    <% end %>
+  </ui>
+<% end %>
+
+<br/>
+<br/>
+<br/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= post.status %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
