@@ -17,7 +17,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    expire_page action: 'index'
   end
 
   # GET /posts/1/edit
@@ -32,10 +31,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,11 +42,13 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        expire_page posts_path
+        expire_page posts_path(@post)
+        expire_page "/"
+        FileUtils.rm_rf "#{page_cache_directory}/public/page"
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,8 +58,11 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
+      expire_page posts_path
+      expire_page posts_path(@post)
+      expire_page "/"
+      FileUtils.rm_rf "#{page_cache_directory}/public/page"
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

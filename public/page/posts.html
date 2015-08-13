@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DemoRailsCache</title>
+  <link data-turbolinks-track="true" href="/assets/posts.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/scaffolds.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/turbolinks.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/posts.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/application.js?body=1"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="SRzuedY0Pq+0YvqUMsC6I7HPalG8sKWLnuG04rYv0SM=" name="csrf-token" />
+</head>
+<body>
+
+<h1>Listing posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>after cache 3</td>
+        <td>after cache 3</td>
+        <td>false</td>
+        <td><a href="/posts/15">Show</a></td>
+        <td><a href="/posts/15/edit">Edit</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/posts/15" rel="nofollow">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>after cache 5</td>
+        <td>after cache 5</td>
+        <td>false</td>
+        <td><a href="/posts/16">Show</a></td>
+        <td><a href="/posts/16/edit">Edit</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/posts/16" rel="nofollow">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>abcd 123</td>
+        <td>abcd 123</td>
+        <td>false</td>
+        <td><a href="/posts/17">Show</a></td>
+        <td><a href="/posts/17/edit">Edit</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/posts/17" rel="nofollow">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>new abcd</td>
+        <td>new abcd</td>
+        <td>false</td>
+        <td><a href="/posts/18">Show</a></td>
+        <td><a href="/posts/18/edit">Edit</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/posts/18" rel="nofollow">Destroy</a></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<a href="/posts/new">New Post</a>
+
+
+</body>
+</html>
