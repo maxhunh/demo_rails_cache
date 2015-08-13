@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module DemoRailsCache
   class Application < Rails::Application
+
+    # Hack directory to save page cached
+    config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/page"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
