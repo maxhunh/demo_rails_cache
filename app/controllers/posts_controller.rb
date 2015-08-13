@@ -17,7 +17,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    expire_page action: 'index'
   end
 
   # GET /posts/1/edit
